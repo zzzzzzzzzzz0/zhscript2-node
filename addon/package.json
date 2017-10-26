@@ -1,0 +1,14 @@
+{
+  "name": "zhscript2",
+  "version": "0.0.1",
+  "description": "中文脚本第二版",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "node test.js"
+  },
+  "gypfile": true,
+  "dependencies": {
+    "bindings": "~1.2.1"
+  }
+}

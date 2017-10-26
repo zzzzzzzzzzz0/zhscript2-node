@@ -1,0 +1,14 @@
+{
+  "name": "electronsh",
+  "version": "0.0.1",
+  "main": "main.js",
+  "scripts": {
+    "start": "./start"
+  },
+  "dependencies": {
+    "electron": "^1.2.0",
+    "bindings": "~1.2.1",
+    "zhscript2": "x"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="1.js"></script>
+</head>
+<body>
+<script>
+ipc_.on('htm_', function(event, a) {
+	var app = process.env.ELECTRONSH_APP
+	if(app)
+		document.write('<base href="file://' + app + '" />')
+	switch(typeof(a)) {
+	case 'object':
+		for(var i = 0; i < a.length; i++) {
+			document.write(a[i])
+		}
+		break;
+	default:
+		document.write(a)
+		break;
+	}
+})
+</script>
+</body>
+</html>

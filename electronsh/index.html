@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="1.js"></script>
+<script>
+const z$ = require('bindings')('zhscript2')
+z$('.', __dirname + '/bin/zhscript2/'/*, '-zhscript-o-ansi -zhscript-o-path'*/)
+
+ipc_.on('index.html', function(event, arg1, arg2, arg3, arg4) {
+	eval(arg1)
+})
+
+var nn___ = window.Notification || window.mozNotification || window.webkitNotification
+function nn__(s, title) {
+	nn___.requestPermission()
+	//{icon:`${__dirname}/img/icon.png`, body: s}
+	new nn___(title ? title : '提示', typeof(s) == 'object' ? s : {body: s})
+}
+
+function window_open(htm, conf, o) {
+	ipc_.send('window_open', htm, conf, o)
+}
+function window_open2(htm, conf, o) {
+	if(!o)
+		o = {}
+	o.htm_ = htm
+	window_open('file://' + __dirname + '/index2.html', conf, o)
+}
+</script>
+</head>
+<body>
+<script>
+var app = process.env.ELECTRONSH_APP
+if(app)
+	document.write('<base href="file://' + app + '" />')
+document.write(z$(app ? '加载“' + app + 'index.zs”。' : '‘窗口’'))
+</script>
+</body>
+</html>
