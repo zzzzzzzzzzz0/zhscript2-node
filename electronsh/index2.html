@@ -6,6 +6,9 @@
 </head>
 <body>
 <script>
+const z$ = require('bindings')('zhscript2')
+z$('.', ipc_.sendSync('conf', 'zs_path'))
+
 ipc_.on('htm_', function(event, a) {
 	var app = process.env.ELECTRONSH_APP
 	if(app)
@@ -20,6 +23,10 @@ ipc_.on('htm_', function(event, a) {
 		document.write(a)
 		break;
 	}
+})
+ipc_.on('i_', function(event, arg1, arg2, arg3, arg4, arg5) {
+	//z$('显示下原样index2 i_ ' + arg1 + ',' + arg2 + ',' + arg3 + ',' + arg4 + ',' + arg5 + '上原样换行')
+	eval(z$(arg1 + '、‘参数栈’', arg2, arg3, arg4, arg5))
 })
 </script>
 </body>
