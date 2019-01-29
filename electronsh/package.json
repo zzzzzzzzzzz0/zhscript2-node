@@ -3,11 +3,12 @@
   "version": "0.0.1",
   "main": "main.js",
   "scripts": {
-    "start": "./start"
+    "start": "./start",
+    "test-zs": "node test-zs.js"
   },
   "dependencies": {
-    "electron": "^1.2.0",
-    "bindings": "~1.2.1",
+    "electron": "x",
+    "bindings": "x",
     "zhscript2": "x"
   },
   "devDependencies": {}

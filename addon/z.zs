@@ -6,24 +6,14 @@
 
 加载lib/clpars4。
 调用‘命令行加回调’、
-	m、下代码
-		执行“npm install”
-	上代码、0、、
-	b、下代码
-		进行 build
-	上代码、0、、
-	br、下代码
-		进行 rebuild
-	上代码、0、、
-	brd、下代码
-		进行“rebuild -d”
-	上代码、0、、
-	l、下代码
-		进行 list
-	上代码、0、、
-	r、下代码
-		执行“node test.js”（node .）
-	上代码、0、、
+	i1	、“执行“npm install -g node-gyp””、0、、
+	m	、“执行“npm install””、0、、
+	b	、“进行 build”、0、、
+	br	、“进行 rebuild”、0、、
+	brd	、“进行“rebuild -d””、0、、
+	l	、“进行 list”、0、、
+	r	、“执行“node test-zs.js””、0、、
+	r2	、“执行“node test.js”（node .）”、0、、
 	、、h、下代码
 		显示先调用‘命令行帮助’了下原样
 要跟 electron-prebuilt 配合就需要用 node v6.2.2下的 node-gyp 来编译，运行则不限
