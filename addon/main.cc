@@ -89,7 +89,9 @@ static void my__(char**addr_ret, deque<string> *ret, call4___* call4, void*ce,vo
 
 	deque<string> p;
 	_for_args( argc )
-		p.push_back(s ? s : l4_.keyword__(keyword_null_));
+		const char* s2 = s ? s : l4_.keyword__(keyword_null_);
+		//cout << p.size() << ") " << s2 << endl;
+		p.push_back(s2);
 	_next_args
 
 	for(;;) {
@@ -105,8 +107,17 @@ static void my__(char**addr_ret, deque<string> *ret, call4___* call4, void*ce,vo
 				break;
 			Isolate* isolate = Isolate::GetCurrent();
 			Handle<String> source = String::NewFromUtf8(isolate, p[1].c_str());
-			Handle<Script> script = Script::Compile(source);
-			Handle<Value> result = script->Run();
+
+			/*Handle<Script> script = Script::Compile(source);
+			Handle<Value> result = script->Run();*/
+
+			Local<ObjectTemplate> global = ObjectTemplate::New(isolate);
+			Local<Context> context = Context::New(isolate, NULL, global);
+			Local<Script> script;
+			Script::Compile(context, source).ToLocal(&script);
+			Local<Value> result;
+			script->Run(context).ToLocal(&result);
+
 			String::Utf8Value result2(result);
 			*addr_ret = dup__(*result2);
 			return;
@@ -164,13 +175,14 @@ void call4___::z__(int& err, deque<string>* ret, const char** ret2) {
 		string s;
 		s+=dy;s+=x;
 		s+=fn;s+=eq;
-		s+=d;
+		s+=ky; s+="&"; s+=by;s+=d;
 		s+=ky; sprintf(buf, "%lu", (unsigned long)my__);s+=buf; s+=by;s+=d;
 		s+=ky;s+="-A-&-&-$11-$14-Z";s+=by;
 		s+=l;s+=d;
 		s+=ky; sprintf(buf, "%lu", (unsigned long)ret);s+=buf; s+=by;s+=d;
 		s+=ky; sprintf(buf, "%lu", (unsigned long)this);s+=buf; s+=by;s+=d;
 		s+=bs;s+=c;s+=bz;s+=j;
+		//cout << s << endl;
 		err=l4_.def_new__("我的",s.c_str(), true,false, qu);
 	}
 	if(!err) {
